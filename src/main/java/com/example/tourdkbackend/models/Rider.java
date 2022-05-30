@@ -26,6 +26,9 @@ public class Rider {
     @JsonManagedReference
     private Team team;
 
+    @Column(nullable = false)
+    private String country;
+
     @Column
     private int time;
 
@@ -35,4 +38,75 @@ public class Rider {
     @Column
     private int mountainPoints;
 
+    public Integer getRiderId() {
+        return riderId;
+    }
+
+    public void setRiderId(Integer riderId) {
+        this.riderId = riderId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getMountainPoints() {
+        return mountainPoints;
+    }
+
+    public void setMountainPoints(int mountainPoints) {
+        this.mountainPoints = mountainPoints;
+    }
 }

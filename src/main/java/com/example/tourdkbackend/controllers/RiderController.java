@@ -17,7 +17,7 @@ public class RiderController {
     @Autowired RiderRepository riderRepository;
 
     /**
-     * Get a list of all riders created
+     * Get a list of all riders created.
      *
      * @return a list of riders
      */
@@ -27,7 +27,7 @@ public class RiderController {
     }
 
     /**
-     * Create a new rider, and save it in the database
+     * Create a new rider, and save it in the database.
      *
      * @param rider to save
      * @return request message and HTTP status code
@@ -43,7 +43,7 @@ public class RiderController {
     }
 
     /**
-     * Update a rider, with an existing rider
+     * Update a rider, with an existing rider.
      *
      * @param id wanted to update
      * @param rider object with updated data
@@ -64,6 +64,21 @@ public class RiderController {
         }
     }
 
-
+    /**
+     * Delete a rider, with a given id.
+     *
+     * @param id of rider to delete
+     * @return request message and HTTP status code
+     */
+    @DeleteMapping("/delete/rider/{id}")
+    public ResponseEntity<String> deleteRider(@PathVariable int id) {
+        try {
+            riderRepository.deleteById(id);
+            return new ResponseEntity<>("deleted rider with id: " + id, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(
+                    "can't delete rider with id: " + id + "\n Error code: " + e, HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

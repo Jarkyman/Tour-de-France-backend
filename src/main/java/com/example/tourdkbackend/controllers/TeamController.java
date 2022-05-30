@@ -1,12 +1,15 @@
 package com.example.tourdkbackend.controllers;
 
+import com.example.tourdkbackend.models.Rider;
 import com.example.tourdkbackend.models.Team;
+import com.example.tourdkbackend.services.RiderRepository;
 import com.example.tourdkbackend.services.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +20,9 @@ public class TeamController {
     @Autowired
     TeamRepository teamRepository;
 
+    @Autowired
+    RiderRepository riderRepository;
+
     /**
      * Get a list of all teams created.
      *
@@ -25,6 +31,26 @@ public class TeamController {
     @GetMapping("/teams")
     public List<Team> getAllTeams() {
         return teamRepository.findAll();
+    }
+
+    /**
+     * Get all riders from a specifik team
+     *
+     * @param id of the team
+     * @return a list of riders
+     */
+    @GetMapping("/riders/team/{id}")
+    public List<Rider> getRidersFromTeam(@PathVariable int id) {
+        List<Rider> allRiders = riderRepository.findAll();
+        List<Rider> ridersInTeam = new ArrayList<>();
+        if (!allRiders.isEmpty()) {
+            for (Rider rider : allRiders) {
+                if (rider.getTeam().getTeamId() == id) {
+                    ridersInTeam.add(rider);
+                }
+            }
+        }
+        return ridersInTeam;
     }
 
     /**

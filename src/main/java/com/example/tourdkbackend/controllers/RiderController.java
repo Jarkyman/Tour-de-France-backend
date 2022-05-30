@@ -14,7 +14,8 @@ import java.util.Optional;
 @CrossOrigin
 public class RiderController {
 
-    @Autowired RiderRepository riderRepository;
+    @Autowired
+    RiderRepository riderRepository;
 
     /**
      * Get a list of all riders created.
@@ -37,7 +38,7 @@ public class RiderController {
         try {
             riderRepository.save(rider);
             return new ResponseEntity<>(rider.getFirstName() + " " + rider.getLastName() + " is created", HttpStatus.CREATED);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Something went wrong while creating a new rider.\nError msg: " + e, HttpStatus.NOT_ACCEPTABLE);
         }
     }
@@ -45,7 +46,7 @@ public class RiderController {
     /**
      * Update a rider, with an existing rider.
      *
-     * @param id wanted to update
+     * @param id    wanted to update
      * @param rider object with updated data
      * @return request message and HTTP status code
      */
@@ -59,7 +60,7 @@ public class RiderController {
                 return new ResponseEntity<>("Updated " + rider.getFirstName() + " " + rider.getLastName() + " by id: " + id, HttpStatus.ACCEPTED);
             }
             return new ResponseEntity<>("No rider with id: " + id, HttpStatus.NOT_ACCEPTABLE);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Update failed. no one with id: " + id + "\nError code: " + e, HttpStatus.NOT_FOUND);
         }
     }

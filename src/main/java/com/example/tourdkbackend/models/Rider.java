@@ -1,6 +1,6 @@
 package com.example.tourdkbackend.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Entity
 public class Rider {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rider_id", nullable = false)
     private Integer riderId;
 
@@ -23,7 +23,6 @@ public class Rider {
 
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
-    @JsonManagedReference
     private Team team;
 
     @Column(nullable = false)

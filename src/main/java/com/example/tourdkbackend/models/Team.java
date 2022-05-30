@@ -1,5 +1,7 @@
 package com.example.tourdkbackend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,7 +9,7 @@ import java.util.Set;
 @Entity
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "team_id", nullable = false)
     private Integer teamId;
 
@@ -19,6 +21,7 @@ public class Team {
 
     @OneToMany
     @JoinColumn(name = "team_id")
+    @JsonBackReference
     private Set<Rider> riders = new HashSet<>();
 
     public Integer getTeamId() {

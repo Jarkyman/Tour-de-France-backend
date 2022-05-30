@@ -27,6 +27,11 @@ public class RiderController {
         return riderRepository.findAll();
     }
 
+    @GetMapping("/riders/{search}")
+    public List<Rider> getAllRiders(@PathVariable String search) {
+        return riderRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
+    }
+
     /**
      * Create a new rider, and save it in the database.
      *

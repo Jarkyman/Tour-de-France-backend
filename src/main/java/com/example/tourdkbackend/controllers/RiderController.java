@@ -78,7 +78,7 @@ public class RiderController {
             return new ResponseEntity<>("deleted rider with id: " + id, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(
-                    "can't delete rider with id: " + id + "\n Error code: " + e, HttpStatus.NOT_FOUND);
+                    "can't delete rider with id: " + id + "\nError code: " + e, HttpStatus.NOT_FOUND);
         }
     }
 

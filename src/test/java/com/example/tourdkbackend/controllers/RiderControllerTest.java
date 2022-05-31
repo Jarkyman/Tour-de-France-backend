@@ -107,6 +107,46 @@ class RiderControllerTest {
     }
 
     @Test
+    void updateRiderWrongId() {
+        Team team = new Team();
+        team.setTeamName("Team 1");
+        team.setTeamCountry("Denmark");
+        teamRepository.save(team);
+
+        Rider rider = new Rider();
+        rider.setFirstName("Test Name");
+        rider.setLastName("Test Lastname");
+        rider.setCountry("Denmark");
+        rider.setTeam(team);
+        rider.setBirthday(LocalDate.of(1990, 4, 8));
+        rider.setMountainPoints(0);
+        rider.setPoints(0);
+        rider.setMountainPoints(0);
+        rider.setTime(0);
+        riderRepository.save(rider);
+
+        int id = rider.getRiderId() + 10;
+
+        Rider newRider = new Rider();
+        newRider.setFirstName("Test Name updated");
+        newRider.setLastName("Test Lastname");
+        newRider.setCountry("Denmark");
+        newRider.setTeam(team);
+        newRider.setBirthday(LocalDate.of(1990, 4, 8));
+        newRider.setMountainPoints(0);
+        newRider.setPoints(0);
+        newRider.setMountainPoints(0);
+        newRider.setTime(0);
+
+        ResponseEntity<String> response = riderController.updateRider(id, newRider);
+
+        Optional<Rider> getRider = riderRepository.findById(id);
+
+        assertEquals(HttpStatus.NOT_ACCEPTABLE, response.getStatusCode());
+        assertThat(getRider.isPresent()).isFalse();
+    }
+
+    @Test
     void deleteRider() {
         Team team = new Team();
         team.setTeamId(1);

@@ -13,9 +13,9 @@ Set properties
 `src/main/resources/application.properties`
 
 ```
-spring.datasource.url={Database URL}
-spring.datasource.username={Database Username}
-spring.datasource.password={Database Password}
+spring.datasource.url=${Database URL}
+spring.datasource.username=${Database Username}
+spring.datasource.password=${Database Password}
 ```
 
 start program and enjoy

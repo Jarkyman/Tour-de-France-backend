@@ -2,6 +2,10 @@ package com.example.tourdkbackend.models;
 
 import javax.persistence.*;
 
+/**
+ * Country model class, holding information about a country
+ */
+
 @Entity
 public class Country {
 

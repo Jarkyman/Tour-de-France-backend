@@ -6,6 +6,10 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Team model class, holding information about a team.
+ */
+
 @Entity
 public class Team {
     @Id

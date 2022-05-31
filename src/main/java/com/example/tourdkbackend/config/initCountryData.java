@@ -12,7 +12,12 @@ public class initCountryData implements CommandLineRunner {
     @Autowired
     CountryRepository countryRepository;
 
-
+    /**
+     * Loads all countries to database
+     *
+     * @param args
+     * @throws Exception
+     */
     @Override
     public void run(String... args) throws Exception {
         Country country1 = new Country();

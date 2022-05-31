@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Rider model class, holding information about a rider
+ */
+
 @Entity
 public class Rider {
     @Id

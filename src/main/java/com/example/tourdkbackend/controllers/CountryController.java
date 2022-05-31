@@ -16,6 +16,11 @@ public class CountryController {
     @Autowired
     CountryRepository countryRepository;
 
+    /**
+     * Get a list of all countries participating in Tour de France
+     *
+     * @return a list of countries
+     */
     @GetMapping("/countries")
     public List<Country> getCountries() {
         return countryRepository.findAll();

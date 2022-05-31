@@ -27,6 +27,12 @@ public class RiderController {
         return riderRepository.findAll();
     }
 
+    /**
+     * Make a list from a given search input, from firstname and lastname.
+     *
+     * @param search text to search
+     * @return a list of riders
+     */
     @GetMapping("/riders/{search}")
     public List<Rider> getAllRiders(@PathVariable String search) {
         return riderRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);

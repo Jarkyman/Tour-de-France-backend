@@ -19,7 +19,12 @@ public class initTeamAndRiderData implements CommandLineRunner {
     @Autowired
     RiderRepository riderRepository;
 
-
+    /**
+     * Data loaded on start
+     *
+     * @param args
+     * @throws Exception
+     */
     @Override
     public void run(String... args) throws Exception {
 

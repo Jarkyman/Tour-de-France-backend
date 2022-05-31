@@ -330,18 +330,5 @@ public class initTeamAndRiderData implements CommandLineRunner {
         rider20.setMountainPoints(new Random().nextInt(240) + 20);
         riderRepository.save(rider20);
 
-        /*
-        Rider rider = new Rider();
-        rider.setFirstName(navn);
-        rider.setLastName(efternavn);
-        rider.setCountry(land);
-        rider.setBirthday(LocalDate.of(1987, 5, 17));
-        rider.setTeam(team10);
-        rider.setTime(new Random().nextInt(1200) + 50);
-        rider.setPoints(new Random().nextInt(280) + 20);
-        rider.setMountainPoints(new Random().nextInt(240) + 20);
-        riderRepository.save(rider);
-         */
-
     }
 }

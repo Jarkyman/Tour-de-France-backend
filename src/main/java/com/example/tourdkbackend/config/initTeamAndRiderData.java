@@ -141,7 +141,7 @@ public class initTeamAndRiderData implements CommandLineRunner {
         Rider rider4 = new Rider();
         rider4.setFirstName("Mathieu");
         rider4.setLastName("Burgaudeau");
-        rider4.setCountry("French");
+        rider4.setCountry("Franch");
         rider4.setBirthday(LocalDate.of(1980, 8, 24));
         rider4.setTeam(team7);
         rider4.setTime(new Random().nextInt(1200) + 50);
@@ -152,7 +152,7 @@ public class initTeamAndRiderData implements CommandLineRunner {
         Rider rider5 = new Rider();
         rider5.setFirstName("Jérémy");
         rider5.setLastName("Cabot");
-        rider5.setCountry("French");
+        rider5.setCountry("Franch");
         rider5.setBirthday(LocalDate.of(1999, 10, 10));
         rider5.setTeam(team7);
         rider5.setTime(new Random().nextInt(1200) + 50);

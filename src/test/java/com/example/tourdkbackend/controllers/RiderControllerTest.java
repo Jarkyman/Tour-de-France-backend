@@ -2,8 +2,8 @@ package com.example.tourdkbackend.controllers;
 
 import com.example.tourdkbackend.models.Rider;
 import com.example.tourdkbackend.models.Team;
-import com.example.tourdkbackend.services.RiderRepository;
-import com.example.tourdkbackend.services.TeamRepository;
+import com.example.tourdkbackend.Repository.RiderRepository;
+import com.example.tourdkbackend.Repository.TeamRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

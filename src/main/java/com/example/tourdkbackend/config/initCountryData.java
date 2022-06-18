@@ -1,7 +1,7 @@
 package com.example.tourdkbackend.config;
 
 import com.example.tourdkbackend.models.Country;
-import com.example.tourdkbackend.services.CountryRepository;
+import com.example.tourdkbackend.Repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

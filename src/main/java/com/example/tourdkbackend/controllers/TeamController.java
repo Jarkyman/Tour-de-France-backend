@@ -1,9 +1,10 @@
 package com.example.tourdkbackend.controllers;
 
+import com.example.tourdkbackend.exceptions.TeamNotCreatedException;
 import com.example.tourdkbackend.models.Rider;
 import com.example.tourdkbackend.models.Team;
-import com.example.tourdkbackend.services.RiderRepository;
-import com.example.tourdkbackend.services.TeamRepository;
+import com.example.tourdkbackend.Repository.RiderRepository;
+import com.example.tourdkbackend.Repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,8 +40,8 @@ public class TeamController {
      * @param id of the team
      * @return a list of riders
      */
-    @GetMapping("/riders/team/{id}")
-    public List<Rider> getRidersFromTeam(@PathVariable int id) {
+    @GetMapping("/riders/team/old/{id}")
+    public List<Rider> getRidersFromTeamOld(@PathVariable int id) {
         List<Rider> allRiders = riderRepository.findAll();
         List<Rider> ridersInTeam = new ArrayList<>();
         if (!allRiders.isEmpty()) {
@@ -51,6 +52,17 @@ public class TeamController {
             }
         }
         return ridersInTeam;
+    }
+
+    /**
+     * Get all riders from a specifik team
+     *
+     * @param id of the team
+     * @return a list of riders
+     */
+    @GetMapping("/riders/team/{id}")
+    public List<Rider> getRidersFromTeam(@PathVariable int id) {
+        return riderRepository.findAllByTeamTeamId(id);
     }
 
     /**
@@ -65,7 +77,8 @@ public class TeamController {
             teamRepository.save(team);
             return new ResponseEntity<>(team.getTeamName() + " is created", HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Something went wrong while creating a new team.\nError msg: " + e, HttpStatus.NOT_ACCEPTABLE);
+            throw new TeamNotCreatedException("Wrong input while creating a new team. " + e.getMessage());
+            //return new ResponseEntity<>("Something went wrong while creating a new team.\nError msg: " + e, HttpStatus.NOT_ACCEPTABLE);
         }
     }
 
